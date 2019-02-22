@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 2019_02_22_161709) do
 
   create_table "companies", force: :cascade do |t|
-    t.string "code", null: false
     t.string "name", null: false
     t.string "address1"
     t.string "address2"
