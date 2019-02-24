@@ -1,7 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  code: MyString
   name: MyString
   address1: MyString
   address2: MyString
@@ -13,7 +12,6 @@ one:
   site: MyString
 
 two:
-  code: MyString
   name: MyString
   address1: MyString
   address2: MyString

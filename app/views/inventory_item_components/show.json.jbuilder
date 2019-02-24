@@ -1,0 +1,1 @@
+json.partial! "inventory_item_components/inventory_item_component", inventory_item_component: @inventory_item_component

@@ -1,2 +1,0 @@
-class InventoryComponent < ApplicationRecord
-end

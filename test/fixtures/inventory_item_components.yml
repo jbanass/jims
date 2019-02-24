@@ -2,16 +2,14 @@
 
 one:
   material_id: 1
-  vendor_sku: MyString
-  url: MyString
-  price: 1
-  vendor_id: 1
+  inventory_item_id: 1
+  quantity_needed: 1
   company_id: 1
+  vendor_id: 1
 
 two:
   material_id: 1
-  vendor_sku: MyString
-  url: MyString
-  price: 1
-  vendor_id: 1
+  inventory_item_id: 1
+  quantity_needed: 1
   company_id: 1
+  vendor_id: 1

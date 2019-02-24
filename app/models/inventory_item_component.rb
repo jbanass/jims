@@ -1,0 +1,2 @@
+class InventoryItemComponent < ApplicationRecord
+end

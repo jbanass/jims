@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_22_161709) do
+ActiveRecord::Schema.define(version: 2019_02_24_224646) do
 
   create_table "companies", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
     t.string "address1"
     t.string "address2"
     t.string "address3"
@@ -26,22 +26,22 @@ ActiveRecord::Schema.define(version: 2019_02_22_161709) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "inventories", force: :cascade do |t|
+  create_table "inventory_item_components", force: :cascade do |t|
+    t.integer "material_id"
+    t.integer "inventory_item_id"
+    t.integer "quantity_needed"
+    t.integer "company_id"
+    t.integer "vendor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "inventory_items", force: :cascade do |t|
     t.string "sku"
     t.string "name"
     t.string "description"
     t.integer "inventory_type_id"
     t.integer "company_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "inventory_components", force: :cascade do |t|
-    t.integer "material_id"
-    t.integer "inventory_id"
-    t.integer "quantity_needed"
-    t.integer "company_id"
-    t.integer "vendor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,17 +63,17 @@ ActiveRecord::Schema.define(version: 2019_02_22_161709) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "email", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
     t.string "phone"
-    t.string "password", null: false
+    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "vendor_items", force: :cascade do |t|
-    t.string "sku"
+    t.integer "material_id"
     t.string "vendor_sku"
     t.string "url"
     t.integer "price"
@@ -84,8 +84,8 @@ ActiveRecord::Schema.define(version: 2019_02_22_161709) do
   end
 
   create_table "vendors", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "company_id", null: false
+    t.string "name"
+    t.integer "company_id"
     t.string "site"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
