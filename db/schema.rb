@@ -10,28 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_24_224646) do
+ActiveRecord::Schema.define(version: 2019_02_27_221451) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
-    t.string "address1"
-    t.string "address2"
-    t.string "address3"
+    t.string "street"
     t.string "city"
     t.string "state"
     t.string "zip"
-    t.text "image"
     t.string "site"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "inventory_item_components", force: :cascade do |t|
+    t.integer "quantity_needed"
     t.integer "material_id"
     t.integer "inventory_item_id"
-    t.integer "quantity_needed"
     t.integer "company_id"
-    t.integer "vendor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,6 +53,8 @@ ActiveRecord::Schema.define(version: 2019_02_24_224646) do
 
   create_table "materials", force: :cascade do |t|
     t.string "sku"
+    t.integer "price"
+    t.integer "vendor_id"
     t.integer "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -72,21 +70,10 @@ ActiveRecord::Schema.define(version: 2019_02_24_224646) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "vendor_items", force: :cascade do |t|
-    t.integer "material_id"
-    t.string "vendor_sku"
-    t.string "url"
-    t.integer "price"
-    t.integer "vendor_id"
-    t.integer "company_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "vendors", force: :cascade do |t|
     t.string "name"
-    t.integer "company_id"
     t.string "site"
+    t.integer "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

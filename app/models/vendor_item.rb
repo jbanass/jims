@@ -1,2 +1,0 @@
-class VendorItem < ApplicationRecord
-end

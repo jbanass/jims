@@ -6,8 +6,23 @@
 </p>
 
 <p>
+  <strong>Price:</strong>
+  <%= @material.price %>
+</p>
+
+<p>
+  <strong>Vendor:</strong>
+  <%= @material.vendor %>
+</p>
+
+<p>
   <strong>Company:</strong>
-  <%= @material.company_id %>
+  <%= @material.company %>
+</p>
+
+<p>
+  <strong>Inventory item components:</strong>
+  <%= @material.inventory_item_components %>
 </p>
 
 <%= link_to 'Edit', edit_material_path(@material) %> |

@@ -2,8 +2,14 @@
 
 one:
   sku: MyString
-  company_id: 1
+  price: 1
+  vendor: one
+  company: one
+  inventory_item_components: 
 
 two:
   sku: MyString
-  company_id: 1
+  price: 1
+  vendor: two
+  company: two
+  inventory_item_components: 

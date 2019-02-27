@@ -17,8 +17,23 @@
   </div>
 
   <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vendor_id %>
+    <%= form.text_field :vendor_id %>
+  </div>
+
+  <div class="field">
     <%= form.label :company_id %>
-    <%= form.number_field :company_id %>
+    <%= form.text_field :company_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :inventory_item_components %>
+    <%= form.text_field :inventory_item_components %>
   </div>
 
   <div class="actions">

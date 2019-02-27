@@ -15,10 +15,9 @@ class InventoryItemComponentsTest < ApplicationSystemTestCase
     click_on "New Inventory Item Component"
 
     fill_in "Company", with: @inventory_item_component.company_id
-    fill_in "Inventory item", with: @inventory_item_component.inventory_item_id
-    fill_in "Material", with: @inventory_item_component.material_id
+    fill_in "Inventory item", with: @inventory_item_component.inventory_item
+    fill_in "Material", with: @inventory_item_component.material
     fill_in "Quantity needed", with: @inventory_item_component.quantity_needed
-    fill_in "Vendor", with: @inventory_item_component.vendor_id
     click_on "Create Inventory item component"
 
     assert_text "Inventory item component was successfully created"
@@ -30,10 +29,9 @@ class InventoryItemComponentsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Company", with: @inventory_item_component.company_id
-    fill_in "Inventory item", with: @inventory_item_component.inventory_item_id
-    fill_in "Material", with: @inventory_item_component.material_id
+    fill_in "Inventory item", with: @inventory_item_component.inventory_item
+    fill_in "Material", with: @inventory_item_component.material
     fill_in "Quantity needed", with: @inventory_item_component.quantity_needed
-    fill_in "Vendor", with: @inventory_item_component.vendor_id
     click_on "Update Inventory item component"
 
     assert_text "Inventory item component was successfully updated"

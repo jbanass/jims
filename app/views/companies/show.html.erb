@@ -6,18 +6,8 @@
 </p>
 
 <p>
-  <strong>Address1:</strong>
-  <%= @company.address1 %>
-</p>
-
-<p>
-  <strong>Address2:</strong>
-  <%= @company.address2 %>
-</p>
-
-<p>
-  <strong>Address3:</strong>
-  <%= @company.address3 %>
+  <strong>Street:</strong>
+  <%= @company.street %>
 </p>
 
 <p>
@@ -36,13 +26,33 @@
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <%= @company.image %>
+  <strong>Site:</strong>
+  <%= @company.site %>
 </p>
 
 <p>
-  <strong>Site:</strong>
-  <%= @company.site %>
+  <strong>Inventory types:</strong>
+  <%= @company.inventory_types %>
+</p>
+
+<p>
+  <strong>Inventory items:</strong>
+  <%= @company.inventory_items %>
+</p>
+
+<p>
+  <strong>Inventory item components:</strong>
+  <%= @company.inventory_item_components %>
+</p>
+
+<p>
+  <strong>Materials:</strong>
+  <%= @company.materials %>
+</p>
+
+<p>
+  <strong>Vendors:</strong>
+  <%= @company.vendors %>
 </p>
 
 <%= link_to 'Edit', edit_company_path(@company) %> |

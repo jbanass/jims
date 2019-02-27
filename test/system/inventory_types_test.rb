@@ -17,6 +17,7 @@ class InventoryTypesTest < ApplicationSystemTestCase
     fill_in "Color", with: @inventory_type.color
     fill_in "Company", with: @inventory_type.company_id
     fill_in "Description", with: @inventory_type.description
+    fill_in "Inventory items", with: @inventory_type.inventory_items
     fill_in "Name", with: @inventory_type.name
     click_on "Create Inventory type"
 
@@ -31,6 +32,7 @@ class InventoryTypesTest < ApplicationSystemTestCase
     fill_in "Color", with: @inventory_type.color
     fill_in "Company", with: @inventory_type.company_id
     fill_in "Description", with: @inventory_type.description
+    fill_in "Inventory items", with: @inventory_type.inventory_items
     fill_in "Name", with: @inventory_type.name
     click_on "Update Inventory type"
 

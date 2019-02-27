@@ -12,28 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :material_id %>
-    <%= form.number_field :material_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :inventory_item_id %>
-    <%= form.number_field :inventory_item_id %>
-  </div>
-
-  <div class="field">
     <%= form.label :quantity_needed %>
     <%= form.number_field :quantity_needed %>
   </div>
 
   <div class="field">
-    <%= form.label :company_id %>
-    <%= form.number_field :company_id %>
+    <%= form.label :material %>
+    <%= form.text_field :material %>
   </div>
 
   <div class="field">
-    <%= form.label :vendor_id %>
-    <%= form.number_field :vendor_id %>
+    <%= form.label :inventory_item %>
+    <%= form.text_field :inventory_item %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company_id %>
+    <%= form.text_field :company_id %>
   </div>
 
   <div class="actions">

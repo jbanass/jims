@@ -17,7 +17,7 @@ class InventoryItemsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create inventory_item" do
     assert_difference('InventoryItem.count') do
-      post inventory_items_url, params: { inventory_item: { company_id: @inventory_item.company_id, description: @inventory_item.description, inventory_type_id: @inventory_item.inventory_type_id, name: @inventory_item.name, sku: @inventory_item.sku } }
+      post inventory_items_url, params: { inventory_item: { company_id: @inventory_item.company_id, description: @inventory_item.description, inventory_item_components: @inventory_item.inventory_item_components, inventory_type_id: @inventory_item.inventory_type_id, name: @inventory_item.name, sku: @inventory_item.sku } }
     end
 
     assert_redirected_to inventory_item_url(InventoryItem.last)
@@ -34,7 +34,7 @@ class InventoryItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update inventory_item" do
-    patch inventory_item_url(@inventory_item), params: { inventory_item: { company_id: @inventory_item.company_id, description: @inventory_item.description, inventory_type_id: @inventory_item.inventory_type_id, name: @inventory_item.name, sku: @inventory_item.sku } }
+    patch inventory_item_url(@inventory_item), params: { inventory_item: { company_id: @inventory_item.company_id, description: @inventory_item.description, inventory_item_components: @inventory_item.inventory_item_components, inventory_type_id: @inventory_item.inventory_type_id, name: @inventory_item.name, sku: @inventory_item.sku } }
     assert_redirected_to inventory_item_url(@inventory_item)
   end
 

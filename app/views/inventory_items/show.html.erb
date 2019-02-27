@@ -17,12 +17,17 @@
 
 <p>
   <strong>Inventory type:</strong>
-  <%= @inventory_item.inventory_type_id %>
+  <%= @inventory_item.inventory_type %>
 </p>
 
 <p>
   <strong>Company:</strong>
-  <%= @inventory_item.company_id %>
+  <%= @inventory_item.company %>
+</p>
+
+<p>
+  <strong>Inventory item components:</strong>
+  <%= @inventory_item.inventory_item_components %>
 </p>
 
 <%= link_to 'Edit', edit_inventory_item_path(@inventory_item) %> |

@@ -2,10 +2,10 @@
 
 one:
   name: MyString
-  company_id: 1
   site: MyString
+  company: one
 
 two:
   name: MyString
-  company_id: 1
   site: MyString
+  company: two

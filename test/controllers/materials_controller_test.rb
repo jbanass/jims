@@ -17,7 +17,7 @@ class MaterialsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create material" do
     assert_difference('Material.count') do
-      post materials_url, params: { material: { company_id: @material.company_id, sku: @material.sku } }
+      post materials_url, params: { material: { company_id: @material.company_id, inventory_item_components: @material.inventory_item_components, price: @material.price, sku: @material.sku, vendor_id: @material.vendor_id } }
     end
 
     assert_redirected_to material_url(Material.last)
@@ -34,7 +34,7 @@ class MaterialsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update material" do
-    patch material_url(@material), params: { material: { company_id: @material.company_id, sku: @material.sku } }
+    patch material_url(@material), params: { material: { company_id: @material.company_id, inventory_item_components: @material.inventory_item_components, price: @material.price, sku: @material.sku, vendor_id: @material.vendor_id } }
     assert_redirected_to material_url(@material)
   end
 

@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   resources :inventory_item_components
-  resources :inventory_items
-  resources :vendor_items
   resources :materials
-  resources :inventory_types
   resources :vendors
-  resources :users
+  resources :inventory_items
+  resources :inventory_types
   resources :companies
+  resources :users
   root 'application#hello'
 end

@@ -17,7 +17,7 @@ class CompaniesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create company" do
     assert_difference('Company.count') do
-      post companies_url, params: { company: { address1: @company.address1, address2: @company.address2, address3: @company.address3, city: @company.city, image: @company.image, name: @company.name, site: @company.site, state: @company.state, zip: @company.zip } }
+      post companies_url, params: { company: { city: @company.city, inventory_item_components: @company.inventory_item_components, inventory_items: @company.inventory_items, inventory_types: @company.inventory_types, materials: @company.materials, name: @company.name, site: @company.site, state: @company.state, street: @company.street, vendors: @company.vendors, zip: @company.zip } }
     end
 
     assert_redirected_to company_url(Company.last)
@@ -34,7 +34,7 @@ class CompaniesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update company" do
-    patch company_url(@company), params: { company: { address1: @company.address1, address2: @company.address2, address3: @company.address3, city: @company.city, image: @company.image, name: @company.name, site: @company.site, state: @company.state, zip: @company.zip } }
+    patch company_url(@company), params: { company: { city: @company.city, inventory_item_components: @company.inventory_item_components, inventory_items: @company.inventory_items, inventory_types: @company.inventory_types, materials: @company.materials, name: @company.name, site: @company.site, state: @company.state, street: @company.street, vendors: @company.vendors, zip: @company.zip } }
     assert_redirected_to company_url(@company)
   end
 

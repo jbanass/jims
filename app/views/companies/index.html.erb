@@ -6,14 +6,16 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Address1</th>
-      <th>Address2</th>
-      <th>Address3</th>
+      <th>Street</th>
       <th>City</th>
       <th>State</th>
       <th>Zip</th>
-      <th>Image</th>
       <th>Site</th>
+      <th>Inventory types</th>
+      <th>Inventory items</th>
+      <th>Inventory item components</th>
+      <th>Materials</th>
+      <th>Vendors</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,14 +24,16 @@
     <% @companies.each do |company| %>
       <tr>
         <td><%= company.name %></td>
-        <td><%= company.address1 %></td>
-        <td><%= company.address2 %></td>
-        <td><%= company.address3 %></td>
+        <td><%= company.street %></td>
         <td><%= company.city %></td>
         <td><%= company.state %></td>
         <td><%= company.zip %></td>
-        <td><%= company.image %></td>
         <td><%= company.site %></td>
+        <td><%= company.inventory_types %></td>
+        <td><%= company.inventory_items %></td>
+        <td><%= company.inventory_item_components %></td>
+        <td><%= company.materials %></td>
+        <td><%= company.vendors %></td>
         <td><%= link_to 'Show', company %></td>
         <td><%= link_to 'Edit', edit_company_path(company) %></td>
         <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>

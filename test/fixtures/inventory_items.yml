@@ -4,12 +4,14 @@ one:
   sku: MyString
   name: MyString
   description: MyString
-  inventory_type_id: 1
-  company_id: 1
+  inventory_type: one
+  company: one
+  inventory_item_components: 
 
 two:
   sku: MyString
   name: MyString
   description: MyString
-  inventory_type_id: 1
-  company_id: 1
+  inventory_type: two
+  company: two
+  inventory_item_components: 

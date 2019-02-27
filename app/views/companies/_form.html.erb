@@ -17,18 +17,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :address1 %>
-    <%= form.text_field :address1 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address2 %>
-    <%= form.text_field :address2 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address3 %>
-    <%= form.text_field :address3 %>
+    <%= form.label :street %>
+    <%= form.text_field :street %>
   </div>
 
   <div class="field">
@@ -47,13 +37,33 @@
   </div>
 
   <div class="field">
-    <%= form.label :image %>
-    <%= form.text_area :image %>
+    <%= form.label :site %>
+    <%= form.text_field :site %>
   </div>
 
   <div class="field">
-    <%= form.label :site %>
-    <%= form.text_field :site %>
+    <%= form.label :inventory_types %>
+    <%= form.text_field :inventory_types %>
+  </div>
+
+  <div class="field">
+    <%= form.label :inventory_items %>
+    <%= form.text_field :inventory_items %>
+  </div>
+
+  <div class="field">
+    <%= form.label :inventory_item_components %>
+    <%= form.text_field :inventory_item_components %>
+  </div>
+
+  <div class="field">
+    <%= form.label :materials %>
+    <%= form.text_field :materials %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vendors %>
+    <%= form.text_field :vendors %>
   </div>
 
   <div class="actions">

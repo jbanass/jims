@@ -15,7 +15,10 @@ class MaterialsTest < ApplicationSystemTestCase
     click_on "New Material"
 
     fill_in "Company", with: @material.company_id
+    fill_in "Inventory item components", with: @material.inventory_item_components
+    fill_in "Price", with: @material.price
     fill_in "Sku", with: @material.sku
+    fill_in "Vendor", with: @material.vendor_id
     click_on "Create Material"
 
     assert_text "Material was successfully created"
@@ -27,7 +30,10 @@ class MaterialsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Company", with: @material.company_id
+    fill_in "Inventory item components", with: @material.inventory_item_components
+    fill_in "Price", with: @material.price
     fill_in "Sku", with: @material.sku
+    fill_in "Vendor", with: @material.vendor_id
     click_on "Update Material"
 
     assert_text "Material was successfully updated"

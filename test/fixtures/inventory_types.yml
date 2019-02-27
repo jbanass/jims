@@ -4,10 +4,12 @@ one:
   name: MyString
   description: MyString
   color: MyString
-  company_id: 1
+  company: one
+  inventory_items: 
 
 two:
   name: MyString
   description: MyString
   color: MyString
-  company_id: 1
+  company: two
+  inventory_items: 

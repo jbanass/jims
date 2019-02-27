@@ -17,7 +17,7 @@ class InventoryTypesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create inventory_type" do
     assert_difference('InventoryType.count') do
-      post inventory_types_url, params: { inventory_type: { color: @inventory_type.color, company_id: @inventory_type.company_id, description: @inventory_type.description, name: @inventory_type.name } }
+      post inventory_types_url, params: { inventory_type: { color: @inventory_type.color, company_id: @inventory_type.company_id, description: @inventory_type.description, inventory_items: @inventory_type.inventory_items, name: @inventory_type.name } }
     end
 
     assert_redirected_to inventory_type_url(InventoryType.last)
@@ -34,7 +34,7 @@ class InventoryTypesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update inventory_type" do
-    patch inventory_type_url(@inventory_type), params: { inventory_type: { color: @inventory_type.color, company_id: @inventory_type.company_id, description: @inventory_type.description, name: @inventory_type.name } }
+    patch inventory_type_url(@inventory_type), params: { inventory_type: { color: @inventory_type.color, company_id: @inventory_type.company_id, description: @inventory_type.description, inventory_items: @inventory_type.inventory_items, name: @inventory_type.name } }
     assert_redirected_to inventory_type_url(@inventory_type)
   end
 

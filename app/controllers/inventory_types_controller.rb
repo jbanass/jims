@@ -69,6 +69,6 @@ class InventoryTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inventory_type_params
-      params.require(:inventory_type).permit(:name, :description, :color, :company_id)
+      params.require(:inventory_type).permit(:name, :description, :color, :company_id, :inventory_items)
     end
 end

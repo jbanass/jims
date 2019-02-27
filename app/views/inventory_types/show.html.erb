@@ -17,7 +17,12 @@
 
 <p>
   <strong>Company:</strong>
-  <%= @inventory_type.company_id %>
+  <%= @inventory_type.company %>
+</p>
+
+<p>
+  <strong>Inventory items:</strong>
+  <%= @inventory_type.inventory_items %>
 </p>
 
 <%= link_to 'Edit', edit_inventory_type_path(@inventory_type) %> |

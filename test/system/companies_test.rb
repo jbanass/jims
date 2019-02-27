@@ -14,14 +14,16 @@ class CompaniesTest < ApplicationSystemTestCase
     visit companies_url
     click_on "New Company"
 
-    fill_in "Address1", with: @company.address1
-    fill_in "Address2", with: @company.address2
-    fill_in "Address3", with: @company.address3
     fill_in "City", with: @company.city
-    fill_in "Image", with: @company.image
+    fill_in "Inventory item components", with: @company.inventory_item_components
+    fill_in "Inventory items", with: @company.inventory_items
+    fill_in "Inventory types", with: @company.inventory_types
+    fill_in "Materials", with: @company.materials
     fill_in "Name", with: @company.name
     fill_in "Site", with: @company.site
     fill_in "State", with: @company.state
+    fill_in "Street", with: @company.street
+    fill_in "Vendors", with: @company.vendors
     fill_in "Zip", with: @company.zip
     click_on "Create Company"
 
@@ -33,14 +35,16 @@ class CompaniesTest < ApplicationSystemTestCase
     visit companies_url
     click_on "Edit", match: :first
 
-    fill_in "Address1", with: @company.address1
-    fill_in "Address2", with: @company.address2
-    fill_in "Address3", with: @company.address3
     fill_in "City", with: @company.city
-    fill_in "Image", with: @company.image
+    fill_in "Inventory item components", with: @company.inventory_item_components
+    fill_in "Inventory items", with: @company.inventory_items
+    fill_in "Inventory types", with: @company.inventory_types
+    fill_in "Materials", with: @company.materials
     fill_in "Name", with: @company.name
     fill_in "Site", with: @company.site
     fill_in "State", with: @company.state
+    fill_in "Street", with: @company.street
+    fill_in "Vendors", with: @company.vendors
     fill_in "Zip", with: @company.zip
     click_on "Update Company"
 

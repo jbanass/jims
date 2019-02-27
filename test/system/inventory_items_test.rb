@@ -16,6 +16,7 @@ class InventoryItemsTest < ApplicationSystemTestCase
 
     fill_in "Company", with: @inventory_item.company_id
     fill_in "Description", with: @inventory_item.description
+    fill_in "Inventory item components", with: @inventory_item.inventory_item_components
     fill_in "Inventory type", with: @inventory_item.inventory_type_id
     fill_in "Name", with: @inventory_item.name
     fill_in "Sku", with: @inventory_item.sku
@@ -31,6 +32,7 @@ class InventoryItemsTest < ApplicationSystemTestCase
 
     fill_in "Company", with: @inventory_item.company_id
     fill_in "Description", with: @inventory_item.description
+    fill_in "Inventory item components", with: @inventory_item.inventory_item_components
     fill_in "Inventory type", with: @inventory_item.inventory_type_id
     fill_in "Name", with: @inventory_item.name
     fill_in "Sku", with: @inventory_item.sku
