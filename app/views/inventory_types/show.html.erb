@@ -17,12 +17,7 @@
 
 <p>
   <strong>Company:</strong>
-  <%= @inventory_type.company %>
-</p>
-
-<p>
-  <strong>Inventory items:</strong>
-  <%= @inventory_type.inventory_items %>
+  <%= Company.find(@inventory_type.company_id).name %>
 </p>
 
 <%= link_to 'Edit', edit_inventory_type_path(@inventory_type) %> |
