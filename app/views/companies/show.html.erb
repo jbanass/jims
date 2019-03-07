@@ -30,30 +30,5 @@
   <%= @company.site %>
 </p>
 
-<p>
-  <strong>Inventory types:</strong>
-  <%= @company.inventory_types %>
-</p>
-
-<p>
-  <strong>Inventory items:</strong>
-  <%= @company.inventory_items %>
-</p>
-
-<p>
-  <strong>Inventory item components:</strong>
-  <%= @company.inventory_item_components %>
-</p>
-
-<p>
-  <strong>Materials:</strong>
-  <%= @company.materials %>
-</p>
-
-<p>
-  <strong>Vendors:</strong>
-  <%= @company.vendors %>
-</p>
-
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>
