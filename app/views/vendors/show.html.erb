@@ -12,7 +12,7 @@
 
 <p>
   <strong>Company:</strong>
-  <%= @vendor.company %>
+  <%= Company.find(@vendor.company_id).name %>
 </p>
 
 <%= link_to 'Edit', edit_vendor_path(@vendor) %> |
