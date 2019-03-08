@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     collection do
       get 'get_vendor_select'
       get 'get_inventory_types_select'
+      get 'get_inventory_item_select'
+      get 'get_material_select'
     end
   end
   resources :users

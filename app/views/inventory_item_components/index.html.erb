@@ -17,9 +17,9 @@
     <% @inventory_item_components.each do |inventory_item_component| %>
       <tr>
         <td><%= inventory_item_component.quantity_needed %></td>
-        <td><%= inventory_item_component.material %></td>
-        <td><%= inventory_item_component.inventory_item %></td>
-        <td><%= inventory_item_component.company %></td>
+        <td><%= Material.find(inventory_item_component.material_id).sku %></td>
+        <td><%= InventoryItem.find(inventory_item_component.inventory_item_id).sku %></td>
+        <td><%= Company.find(inventory_item_component.company_id).name %></td>
         <td><%= link_to 'Show', inventory_item_component %></td>
         <td><%= link_to 'Edit', edit_inventory_item_component_path(inventory_item_component) %></td>
         <td><%= link_to 'Destroy', inventory_item_component, method: :delete, data: { confirm: 'Are you sure?' } %></td>

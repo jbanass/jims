@@ -15,10 +15,12 @@ class InventoryItemComponentsController < ApplicationController
   # GET /inventory_item_components/new
   def new
     @inventory_item_component = InventoryItemComponent.new
+    @set_company_id = Company.first.id
   end
 
   # GET /inventory_item_components/1/edit
   def edit
+    @set_company_id = @inventory_item_component.company_id
   end
 
   # POST /inventory_item_components

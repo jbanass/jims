@@ -7,17 +7,17 @@
 
 <p>
   <strong>Material:</strong>
-  <%= @inventory_item_component.material %>
+  <%= Material.find(@inventory_item_component.material_id).sku %>
 </p>
 
 <p>
   <strong>Inventory item:</strong>
-  <%= @inventory_item_component.inventory_item %>
+  <%= InventoryItem.find(@inventory_item_component.inventory_item_id).sku %>
 </p>
 
 <p>
   <strong>Company:</strong>
-  <%= @inventory_item_component.company %>
+  <%= Company.find(@inventory_item_component.company_id).name %>
 </p>
 
 <%= link_to 'Edit', edit_inventory_item_component_path(@inventory_item_component) %> |
