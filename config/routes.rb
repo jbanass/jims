@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :companies do
     collection do
       get 'get_vendor_select'
+      get 'get_inventory_types_select'
     end
   end
   resources :users

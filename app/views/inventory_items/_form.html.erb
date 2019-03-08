@@ -27,21 +27,27 @@
   </div>
 
   <div class="field">
-    <%= form.label :inventory_type_id %>
-    <%= form.text_field :inventory_type_id %>
-  </div>
-
-  <div class="field">
     <%= form.label :company_id %>
-    <%= form.text_field :company_id %>
+    <%= form.select :company_id, options_for_select(Company.all.map{|s|[s.name,s.id]}), {}, {:id=>"company-select"} %>
   </div>
 
-  <div class="field">
-    <%= form.label :inventory_item_components %>
-    <%= form.text_field :inventory_item_components %>
-  </div>
+  <% if :inventory_type_id? %>
+    <div class="field">
+      <%= form.label :inventory_type_id %>
+      <%= form.select :inventory_type_id, options_for_select(InventoryType.where("company_id" => @set_company_id).map{|s|[s.name,s.id]}), {}, {:id=>"inventory-types"} %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= javascript_tag do%>
+  $('#company-select').change(function() {
+    var value = $(this).val();
+
+    url = '/companies/get_inventory_types_select?id='+value;
+    $.get(url, function(data){$('#inventory-types').html(data)});
+  })
 <% end %>

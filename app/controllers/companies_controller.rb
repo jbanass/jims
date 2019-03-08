@@ -28,6 +28,12 @@ class CompaniesController < ApplicationController
     render :partial => 'vendor-select', :layout => nil
   end
 
+  def get_inventory_types_select
+    @inventory_types = InventoryType.where(:company_id => params[:id])
+
+    render :partial => 'inventory-type-select', :layout => nil
+  end
+
   # POST /companies
   # POST /companies.json
   def create
