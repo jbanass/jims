@@ -15,10 +15,12 @@ class MaterialsController < ApplicationController
   # GET /materials/new
   def new
     @material = Material.new
+    @set_company_id = Vendor.first.company_id
   end
 
   # GET /materials/1/edit
   def edit
+    @set_company_id = @material.company_id
   end
 
   # POST /materials

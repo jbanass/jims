@@ -12,17 +12,12 @@
 
 <p>
   <strong>Vendor:</strong>
-  <%= @material.vendor %>
+  <%= Vendor.find(@material.vendor_id).name %>
 </p>
 
 <p>
   <strong>Company:</strong>
-  <%= @material.company %>
-</p>
-
-<p>
-  <strong>Inventory item components:</strong>
-  <%= @material.inventory_item_components %>
+  <%= Company.find(@material.company_id).name %>
 </p>
 
 <%= link_to 'Edit', edit_material_path(@material) %> |

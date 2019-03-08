@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   resources :vendors
   resources :inventory_items
   resources :inventory_types
-  resources :companies
+  resources :companies do
+    collection do
+      get 'get_vendor_select'
+    end
+  end
   resources :users
   root 'application#hello'
 end

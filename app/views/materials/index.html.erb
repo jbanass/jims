@@ -9,7 +9,6 @@
       <th>Price</th>
       <th>Vendor</th>
       <th>Company</th>
-      <th>Inventory item components</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,9 +18,8 @@
       <tr>
         <td><%= material.sku %></td>
         <td><%= material.price %></td>
-        <td><%= material.vendor %></td>
-        <td><%= material.company %></td>
-        <td><%= material.inventory_item_components %></td>
+        <td><%= Vendor.find(material.vendor_id).name %></td>
+        <td><%= Company.find(material.company_id).name %></td>
         <td><%= link_to 'Show', material %></td>
         <td><%= link_to 'Edit', edit_material_path(material) %></td>
         <td><%= link_to 'Destroy', material, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -21,6 +21,13 @@ class CompaniesController < ApplicationController
   def edit
   end
 
+  # GET /companies/1/get_vendor_select
+  def get_vendor_select
+    @vendors = Vendor.where(:company_id => params[:id])
+    
+    render :partial => 'vendor-select', :layout => nil
+  end
+
   # POST /companies
   # POST /companies.json
   def create
