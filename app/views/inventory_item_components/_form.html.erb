@@ -17,13 +17,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :inventory_item %>
-    <%= form.select :inventory_item, options_for_select(InventoryItem.where("company_id" => @set_company_id).map{|s|[s.sku,s.id]}), {}, {:id => 'inventory-item'} %>
+    <%= form.label :inventory_item_id %>
+    <%= form.select :inventory_item_id, options_for_select(InventoryItem.where("company_id" => @set_company_id).map{|s|[s.sku,s.id]}), {}, {:id => 'inventory-item'} %>
   </div>
 
   <div class="field">
-    <%= form.label :material %>
-    <%= form.select :material, options_for_select(Material.where("company_id" => @set_company_id).map{|s|[s.sku,s.id]}), {}, {:id => 'material'} %>
+    <%= form.label :material_id %>
+    <%= form.select :material_id, options_for_select(Material.where("company_id" => @set_company_id).map{|s|[s.sku,s.id]}), {}, {:id => 'material'} %>
   </div>
 
   <div class="field">
