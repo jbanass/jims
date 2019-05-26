@@ -1,1 +1,5 @@
-{{yield}}
+{{#each this.companies as |company|}}
+    <div class="mt-1">
+        <Company @company={{company}} />
+    </div>
+{{/each}}
