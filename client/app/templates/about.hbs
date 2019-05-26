@@ -1,25 +1,8 @@
-<h1>About</h1>
-<h2>What is JIMS?</h2>
-<p>JIMS (Jordan's Inventory Management System) is a basic IMS that helps keep track of basic kits, vendors, and so on.
-</p>
-
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Vendor</th>
-        <th>Vendor SKU</th>
-        <th>Company</th>
-        <th>Created Date</th>
-        <th>Modified Date</th>
-    </tr>
-    {{#each this.model as |material|}}
-    <tr>
-        <td>{{material.id}}</td>
-        <td>{{material.vendor.name}}</td>
-        <td>{{material.vendor_sku}}</td>
-        <td>{{material.company.name}}</td>
-        <td>{{material.created}}</td>
-        <td>{{material.modified}}</td>
-    </tr>
-    {{/each}}
-</table>
+<div class="jumbotron">
+    <div class="right"></div>
+    <h2>About</h2>
+    <p>
+        JIMS (Jordan's Inventory Management System) is a basic IMS that allows for recording materials, vendors, and
+        basic kitting.
+    </p>
+</div>
