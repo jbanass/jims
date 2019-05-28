@@ -1,0 +1,9 @@
+<div class="container">
+    <h2>Company Details</h2>
+    <h5>Name: {{this.model.name}}</h5>
+    <h5>Address: {{this.model.street}} {{this.model.city}}, {{this.model.state}} {{this.model.postal}}</h5>
+    <h5>Site: {{this.model.site}}</h5>
+    <h5>Created on: {{this.model.created}}</h5>
+    <h5>Last Modified: {{this.model.modified}}</h5>
+    {{#link-to 'companies' class="btn btn-primary"}}Back{{/link-to}}
+</div>

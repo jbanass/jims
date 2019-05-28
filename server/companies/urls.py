@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     path('companies/', views.CompanyList.as_view()),
-    path('companis/<int:pk>/', views.CompanyDetail.as_view())
+    path('companies/<int:pk>/', views.CompanyDetail.as_view())
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
