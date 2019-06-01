@@ -1,9 +1,65 @@
 <div class="container">
     <h2>Company Details</h2>
-    <h5>Name: {{this.model.name}}</h5>
-    <h5>Address: {{this.model.street}} {{this.model.city}}, {{this.model.state}} {{this.model.postal}}</h5>
-    <h5>Site: {{this.model.site}}</h5>
-    <h5>Created on: {{this.model.created}}</h5>
-    <h5>Last Modified: {{this.model.modified}}</h5>
-    {{#link-to 'companies' class="btn btn-primary"}}Back{{/link-to}}
+    <div class="panel panel-danger">
+        {{#each model.errors.name as |error|}}
+            {{error.message}}
+        {{/each}}
+    </div>
+    <form {{action "saveCompany" this.model on="submit"}}>
+        <div class="form-group row">
+            <label for="inputCompanyName" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10" onclick={{action "edit" this.model}}>
+                {{input type="text" id="inputCompanyName" value=this.model.name class="form-control" placeholder="Name"}}
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputCompanyStreet" class="col-sm-2 col-form-label">Street</label>
+            <div class="col-sm-10" onclick={{action "edit" this.model}}>
+                {{input type="text" value=this.model.street class="form-control" id="inputCompanyStreet" placeholder="Street"}}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputCompanyCity">City</label>
+                {{input type="text" value=this.model.city class="form-control" id="inputCompanyCity"
+                    placeholder="City"}}
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputCompanyState">State</label>
+                {{input type="text" value=this.model.state class="form-control" id="inputCompanyState"
+                    placeholder="State"}}
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputCompanyPostal">Postal</label>
+                {{input type="text" value=this.model.postal class="form-control" id="inputCompanyPostal"
+                    placeholder="Postal"}}
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputCompanySite" class="col-sm-2 col-form-label">Site</label>
+            <div class="col-sm-10" onclick={{action "edit" this.model}}>
+                {{input type="text" value=this.model.site class="form-control" id="inputCompanySite"
+                    placeholder="Site"}}
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputCompanyCreated" class="col-sm-2 col-form-label">Created</label>
+            <div class="col-sm-10" onclick={{action "edit" this.model}}>
+                {{input readonly type="text" value=this.model.created class="form-control-plaintext"
+                    id="inputCompanyCreated" placeholder="Created"}}
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputCompanyModified" class="col-sm-2 col-form-label">Modified</label>
+            <div class="col-sm-10" onclick={{action "edit" this.model}}>
+                {{input readonly type="text" value=this.model.modified class="form-control-plaintext"
+                    id="inputCompanyModified" placeholder="Modified"}}
+            </div>
+        </div>
+        {{#link-to "companies" class="btn btn-secondary"}}Back{{/link-to}}
+        {{#if this.model.isEditing}}
+            <button class="btn btn-dark" {{action "cancelEdit" this.model}}>Cancel</button>
+            <button type="submit" {{action "saveCompany" this.model}} class="btn btn-primary">Save</button>
+        {{/if}}
+    </form>
 </div>
