@@ -10,6 +10,7 @@ Router.map(function() {
   this.route("about");
   this.route("companies", function() {
     this.route("show", { path: "/:id" });
+    this.route('new');
   });
 });
 
