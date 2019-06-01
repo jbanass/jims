@@ -23,11 +23,17 @@ export default Controller.extend({
     },
     cancelEdit(model) {
       model.set("isEditing", false);
+      model.rollbackAttributes();
     },
     saveCompany(model) {
       console.log(model);
-      model.set("isEditing", false);
-      model.save();
+
+      model.save().then(() => {
+        model.set("isEditing", false);
+      });
+    },
+    logModel(model) {
+      console.log(model);
     }
   }
 });
