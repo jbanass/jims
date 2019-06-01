@@ -3,12 +3,13 @@ import Controller from "@ember/controller";
 export default Controller.extend({
   actions: {
     delete(id) {
+      let self = this;
       this.store
         .findRecord("company", id, { backgroundReload: false })
         .then(function(post) {
           post.destroyRecord().then(
             function(success) {
-              alert(success);
+              self.transitionToRoute("companies");
             },
             function(error) {
               alert(error);
