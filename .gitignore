@@ -49,5 +49,4 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
-.gitignore
 server/db.sqlite3
