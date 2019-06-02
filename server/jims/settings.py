@@ -29,6 +29,9 @@ DEBUG = True
 
 APPEND_SLASH = False
 
+JSON_API_FORMAT_RELATION_KEYS = 'dasherize'
+JSON_API_FORMAT_KEYS = 'dasherize'
+
 ALLOWED_HOSTS = []
 
 
