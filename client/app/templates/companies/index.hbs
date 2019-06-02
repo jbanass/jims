@@ -1,0 +1,7 @@
+<div class="container">
+    <div>
+        <h2>Companies</h2>
+    </div>
+    {{#link-to "companies.new" class="btn btn-primary"}}Create{{/link-to}}
+    <CompanyList @companies={{this.model}} />
+</div>

@@ -1,0 +1,99 @@
+<div class="container">
+    <h2>Create new Company</h2>
+    <form {{action "saveCompany" this.model on="submit"}}>
+        <div class="form-group row">
+            <label for="inputCompanyName"
+                class="col-sm-2 col-form-label {{if model.errors.name "text-danger"}}">Name</label>
+            <div class="col-sm-10">
+                {{input type="text" id="inputCompanyName" value=this.model.name class=(if model.errors.name "form-control is-invalid" "form-control")
+                placeholder="Name"}}
+            </div>
+            {{#if model.errors.name}}
+                <div class="col-sm-10">
+                    {{#each model.errors.name as |error|}}
+                        <small id="nameHelp" class="text-danger">
+                            {{error.message}}
+                        </small>
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+        <div class="form-group row">
+            <label for="inputCompanyStreet"
+                class="col-sm-2 col-form-label {{if model.errors.street "text-danger"}}">Street</label>
+            <div class="col-sm-10">
+                {{input type="text" value=this.model.street class=(if model.errors.street "form-control is-invalid" "form-control") id="inputCompanyStreet" placeholder="Street"}}
+            </div>
+            {{#if model.errors.street}}
+                <div class="col-sm-10">
+                    {{#each model.errors.street as |error|}}
+                        <small id="streetHelp" class="text-danger">
+                            {{error.message}}
+                        </small>
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label class={{if model.errors.city "text-danger"}} for="inputCompanyCity">City</label>
+                {{input type="text" value=this.model.city class=(if model.errors.city "form-control is-invalid" "form-control") id="inputCompanyCity"
+                    placeholder="City"}}
+            </div>
+            <div class="form-group col-md-4">
+                <label class={{if model.errors.state "text-danger"}} for="inputCompanyState">State</label>
+                {{input type="text" value=this.model.state class=(if model.errors.state "form-control is-invalid" "form-control") id="inputCompanyState"
+                    placeholder="State"}}
+            </div>
+            <div class="form-group col-md-2">
+                <label class={{if model.errors.postal "text-danger"}} for="inputCompanyPostal">Postal</label>
+                {{input type="text" value=this.model.postal class=(if model.errors.postal "form-control is-invalid" "form-control") id="inputCompanyPostal"
+                    placeholder="Postal"}}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6">
+                {{#each model.errors.city as |error|}}
+                    <small id="cityHelp" class="text-danger">
+                        {{error.message}}
+                    </small>
+                {{/each}}
+            </div>
+            <div class="col-md-4">
+                {{#each model.errors.state as |error|}}
+                    <small id="stateHelp" class="text-danger">
+                        {{error.message}}
+                    </small>
+                {{/each}}
+            </div>
+            <div class="col-md-2">
+                {{#each model.errors.postal as |error|}}
+                    <small id="postalHelp" class="text-danger">
+                        {{error.message}}
+                    </small>
+                {{/each}}
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputCompanySite"
+                class="col-sm-2 col-form-label {{if model.errors.site "text-danger"}}">Site</label>
+            <div class="col-sm-10">
+                {{input type="text" value=this.model.site class=(if model.errors.site "form-control is-invalid" "form-control") id="inputCompanySite"
+                    placeholder="Site"}}
+            </div>
+            {{#if model.errors.site}}
+                <div class="col-sm-10">
+                    {{#each model.errors.site as |error|}}
+                        <small id="siteHelp" class="text-danger">
+                            {{error.message}}
+                        </small>
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+        <button {{action "back" this.model}} class="btn btn-secondary">Back</button>
+        <button class="btn btn-dark" {{action "cancel" this.model}}>Cancel</button>
+        <button type="submit" {{action "saveCompany" this.model}} disabled={{unless this.model.isValid true false}}
+            class="btn btn-primary">Save</button>
+    </form>
+</div>
