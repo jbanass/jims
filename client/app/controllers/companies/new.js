@@ -1,8 +1,11 @@
 import Controller from "@ember/controller";
 
 export default Controller.extend({
-  _model: {},
   actions: {
+    back(model) {
+      this.model.rollbackAttributes();
+      this.transitionToRoute("companies");
+    },
     cancel(model) {
       this.model.rollbackAttributes();
       this.transitionToRoute("companies");

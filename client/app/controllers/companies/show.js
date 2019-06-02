@@ -2,13 +2,17 @@ import Controller from "@ember/controller";
 
 export default Controller.extend({
   actions: {
+    back(model) {
+      this.model.rollbackAttributes();
+      this.transitionToRoute("companies");
+    },
     delete(id) {
       let self = this;
       this.store
         .findRecord("company", id, { backgroundReload: false })
         .then(function(post) {
           post.destroyRecord().then(
-            function(success) {
+            function() {
               self.transitionToRoute("companies");
             },
             function(error) {
@@ -26,14 +30,9 @@ export default Controller.extend({
       model.rollbackAttributes();
     },
     saveCompany(model) {
-      console.log(model);
-
       model.save().then(() => {
         model.set("isEditing", false);
       });
-    },
-    logModel(model) {
-      console.log(model);
     }
   }
 });
