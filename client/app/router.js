@@ -10,11 +10,11 @@ Router.map(function() {
   this.route("about");
   this.route("companies", function() {
     this.route("show", { path: "/:id" });
-    this.route('new');
+    this.route("new");
   });
-  this.route('users', function() {
-    this.route('show');
-    this.route('new');
+  this.route("users", function() {
+    this.route("show", { path: "/:id" });
+    this.route("new");
   });
 });
 

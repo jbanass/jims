@@ -1,5 +1,6 @@
 <div class="card">
     <div class="card-body">
         <h5 class="card-title">{{this.user.firstName}} {{this.user.lastName}}</h5>
+        {{#link-to "users.show" this.user.id class="btn btn-primary"}}Details{{/link-to}}
     </div>
 </div>

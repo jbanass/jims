@@ -1,1 +1,96 @@
-{{outlet}}
+<div class="container">
+    <h2>User Details</h2>
+    <form {{action "saveUser" this.model on="submit"}}>
+        <div class="form-group row">
+            <label for="inputUserFirstName" class="col-sm-2 col-form-label {{if model.errors.name "text-danger"}}">First
+                Name</label>
+            <div class="col-sm-10" onclick={{action "edit" this.model}}>
+                {{input type="text" id="inputUserFirstName" value=this.model.firstName class=(if model.errors.firstName "form-control is-invalid" "form-control")
+                placeholder="First Name"}}
+            </div>
+            {{#if model.errors.firstName}}
+                <div class="col-sm-10">
+                    {{#each model.errors.fistName as |error|}}
+                        <small id="firstNameHelp" class="text-danger">
+                            {{error.message}}
+                        </small>
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+        <div class="form-group row">
+            <label for="inputUserLastName"
+                class="col-sm-2 col-form-label {{if model.errors.lastName "text-danger"}}">Last Name</label>
+            <div class="col-sm-10" onclick={{action "edit" this.model}}>
+                {{input type="text" value=this.model.lastName class=(if model.errors.lastName "form-control is-invalid" "form-control") id="inputUserLastName" placeholder="Last Name"}}
+            </div>
+            {{#if model.errors.lastName}}
+                <div class="col-sm-10">
+                    {{#each model.errors.lastName as |error|}}
+                        <small id="lastNameHelp" class="text-danger">
+                            {{error.message}}
+                        </small>
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+        <div class="form-group row">
+            <label for="inputUserEmail"
+                class="col-sm-2 col-form-label {{if model.errors.email "text-danger"}}">Email</label>
+            <div class="col-sm-10" onclick={{action "edit" this.model}}>
+                {{input type="text" value=this.model.email class=(if model.errors.email "form-control is-invalid" "form-control") id="inputUserEmail"
+                    placeholder="Email"}}
+            </div>
+            {{#if model.errors.email}}
+                <div class="col-sm-10">
+                    {{#each model.errors.email as |error|}}
+                        <small id="emailHelp" class="text-danger">
+                            {{error.message}}
+                        </small>
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+        <div class="form-group row">
+            <label for="inputUserUsername"
+                class="col-sm-2 col-form-label {{if model.errors.username "text-danger"}}">Username</label>
+            <div class="col-sm-10" onclick={{action "edit" this.model}}>
+                {{input type="text" value=this.model.username class=(if model.errors.username "form-control is-invalid" "form-control") id="inputUserUsername"
+                    placeholder="Username"}}
+            </div>
+            {{#if model.errors.username}}
+                <div class="col-sm-10">
+                    {{#each model.errors.username as |error|}}
+                        <small id="usernameHelp" class="text-danger">
+                            {{error.message}}
+                        </small>
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+        <div class="form-group row">
+            <label for="inputUserCreated" class="col-sm-2 col-form-label">Created</label>
+            <div class="col-sm-10">
+                {{input readonly disabled=true type="text" value=this.model.created class="form-control-plaintext"
+                    id="inputUserCreated" placeholder="Created"}}
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputUserModified" class="col-sm-2 col-form-label">Modified</label>
+            <div class="col-sm-10">
+                {{input readonly disabled=true type="text" value=this.model.modified class="form-control-plaintext"
+                    id="inputUserModified" placeholder="Modified"}}
+            </div>
+        </div>
+        <button {{action "back" this.model}} class="btn btn-secondary">Back</button>
+        <button class="btn btn-danger" {{action "log" this.model}}>Log Model</button>
+        {{#if this.model.isEditing}}
+            <button class="btn btn-dark" {{action "cancelEdit" this.model}}>Cancel</button>
+            <button type="submit" {{action "saveUser" this.model}} disabled={{unless this.model.isValid true false}}
+                class="btn btn-primary">Save</button>
+            <button class="btn btn-danger" {{action "delete" this.model.id}}>Delete</button>
+        {{else}}
+            <button class="btn btn-danger" {{action "delete" this.model.id}}>Delete</button>
+        {{/if}}
+    </form>
+</div>
