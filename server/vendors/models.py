@@ -8,7 +8,7 @@ from companies.models import Company
 class Vendor(models.Model):
     name = models.CharField(max_length=100)
     company = models.ForeignKey(
-        to=Company, related_name='company', on_delete=models.DO_NOTHING)
+        to=Company, on_delete=models.DO_NOTHING)
     url = models.URLField()
     created = models.DateTimeField(editable=False)
     modified = models.DateTimeField(editable=False)

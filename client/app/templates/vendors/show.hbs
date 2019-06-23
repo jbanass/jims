@@ -1,0 +1,79 @@
+<div class="container">
+    <h2>Vendor Details</h2>
+    <form {{action "saveVendor" this.model on="submit"}}>
+        <div class="form-group row">
+            <label for="inputVendorName"
+                class="col-sm-2 col-form-label {{if model.errors.name "text-danger"}}">Name</label>
+            <div class="col-sm-10" onclick={{action "edit" this.model}}>
+                {{input type="text" id="inputVendorName" value=this.model.name class=(if model.errors.name "form-control is-invalid" "form-control")
+                placeholder="Name"}}
+            </div>
+            {{#if model.errors.name}}
+                <div class="col-sm-10">
+                    {{#each model.errors.name as |error|}}
+                        <small id="nameHelp" class="text-danger">
+                            {{error.message}}
+                        </small>
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+        <div class="form-group row">
+            <label for="inputVendorCompany"
+                class="col-sm-2 col-form-label {{if model.errors.company "text-danger"}}">Company</label>
+            <div class="col-sm-10" onclick={{action "edit" this.model}}>
+                {{input type="text" value=this.model.company class=(if model.errors.company "form-control is-invalid" "form-control") id="inputVendorCompany" placeholder="Company"}}
+            </div>
+            {{#if model.errors.company}}
+                <div class="col-sm-10">
+                    {{#each model.errors.company as |error|}}
+                        <small id="companyHelp" class="text-danger">
+                            {{error.message}}
+                        </small>
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+        <div class="form-group row">
+            <label for="inputVendorSite"
+                class="col-sm-2 col-form-label {{if model.errors.site "text-danger"}}">Site</label>
+            <div class="col-sm-10" onclick={{action "edit" this.model}}>
+                {{input type="text" value=this.model.site class=(if model.errors.site "form-control is-invalid" "form-control") id="inputVendorSite"
+                    placeholder="Site"}}
+            </div>
+            {{#if model.errors.site}}
+                <div class="col-sm-10">
+                    {{#each model.errors.site as |error|}}
+                        <small id="siteHelp" class="text-danger">
+                            {{error.message}}
+                        </small>
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+        <div class="form-group row">
+            <label for="inputVendorCreated" class="col-sm-2 col-form-label">Created</label>
+            <div class="col-sm-10">
+                {{input readonly disabled=true type="text" value=this.model.created class="form-control-plaintext"
+                    id="inputVendorCreated" placeholder="Created"}}
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputVendorModified" class="col-sm-2 col-form-label">Modified</label>
+            <div class="col-sm-10">
+                {{input readonly disabled=true type="text" value=this.model.modified class="form-control-plaintext"
+                    id="inputVendorModified" placeholder="Modified"}}
+            </div>
+        </div>
+        <button {{action "back" this.model}} class="btn btn-secondary">Back</button>
+        <button class="btn btn-danger" onclick="console.log({{this.model}})">Log Model</button>
+        {{#if this.model.isEditing}}
+            <button class="btn btn-dark" {{action "cancelEdit" this.model}}>Cancel</button>
+            <button type="submit" {{action "saveVendor" this.model}} disabled={{unless this.model.isValid true false}}
+                class="btn btn-primary">Save</button>
+            <button class="btn btn-danger" {{action "delete" this.model.id}}>Delete</button>
+        {{else}}
+            <button class="btn btn-danger" {{action "delete" this.model.id}}>Delete</button>
+        {{/if}}
+    </form>
+</div>
