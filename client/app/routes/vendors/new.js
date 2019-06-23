@@ -1,15 +1,19 @@
 import Route from "@ember/routing/route";
+import RSVP from "rsvp";
 
 export default Route.extend({
   model() {
-    return this.store.findAll("company").then(array => {
-      let company = array.objectAt(0);
-      console.log(company);
-      return this.store.createRecord("vendor", {
+    return RSVP.hash({
+      companies: this.store.findAll("company"),
+      vendor: this.store.createRecord("vendor", {
         name: "",
-        company: company,
+        company: this.store.peekAll("company").objectAt(0),
         url: ""
-      });
+      })
     });
+  },
+  setupController(controller, models) {
+    controller.set("companies", models.companies);
+    controller.set("vendor", models.vendor);
   }
 });

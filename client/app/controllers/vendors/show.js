@@ -2,36 +2,37 @@ import Controller from "@ember/controller";
 
 export default Controller.extend({
   actions: {
-    back(model) {
-      this.model.rollbackAttributes();
+    back() {
+      this.vendor.rollbackAttributes();
       this.transitionToRoute("vendors");
     },
-    delete(id) {
+    delete() {
       let self = this;
-      this.store
-        .findRecord("vendor", id, { backgroundReload: false })
-        .then(function(post) {
-          post.destroyRecord().then(
-            function() {
-              self.transitionToRoute("vendors");
-            },
-            function(error) {
-              alert(error);
-              post.rollbackAttributes();
-            }
-          );
-        });
+      this.vendor.destroyRecord().then(
+        function() {
+          self.transitionToRoute("vendors");
+        },
+        function(error) {
+          alert(error);
+          this.vendor.rollbackAttributes();
+        }
+      );
     },
-    edit(model) {
-      model.set("isEditing", true);
+    selectCompany(value) {
+      this.store.findRecord("company", value).then(data => {
+        this.vendor.set("company", data);
+      });
     },
-    cancelEdit(model) {
-      model.set("isEditing", false);
-      model.rollbackAttributes();
+    edit() {
+      this.vendor.set("isEditing", true);
     },
-    saveVendor(model) {
-      model.save().then(() => {
-        model.set("isEditing", false);
+    cancel() {
+      this.vendor.set("isEditing", false);
+      this.vendor.rollbackAttributes();
+    },
+    save() {
+      this.vendor.save().then(() => {
+        this.vendor.set("isEditing", false);
       });
     }
   }

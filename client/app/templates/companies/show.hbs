@@ -106,7 +106,6 @@
             </div>
         </div>
         <button {{action "back" this.model}} class="btn btn-secondary">Back</button>
-        <button class="btn btn-danger" onclick="console.log({{this.model}})">Log Model</button>
         {{#if this.model.isEditing}}
             <button class="btn btn-dark" {{action "cancelEdit" this.model}}>Cancel</button>
             <button type="submit" {{action "saveCompany" this.model}} disabled={{unless this.model.isValid true false}}

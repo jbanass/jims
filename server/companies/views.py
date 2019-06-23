@@ -17,4 +17,4 @@ from rest_framework import generics, viewsets
 class CompanyViewSet(viewsets.ModelViewSet):
     serializer_class = CompanySerializer
     queryset = Company.objects.all()
-    resource_name = 'company'
+    resource_name = 'companies'

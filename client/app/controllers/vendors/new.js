@@ -2,20 +2,25 @@ import Controller from "@ember/controller";
 
 export default Controller.extend({
   actions: {
-    back(model) {
-      this.model.rollbackAttributes();
+    back() {
+      this.vendor.rollbackAttributes();
       this.transitionToRoute("vendors");
     },
-    cancel(model) {
-      this.model.rollbackAttributes();
+    cancel() {
+      this.vendor.rollbackAttributes();
       this.transitionToRoute("vendors");
     },
-    saveVendor(model) {
+    selectCompany(value) {
+      this.store.findRecord("company", value).then(data => {
+        this.vendor.set("company", data);
+      });
+    },
+    save() {
       self = this;
-      model
+      this.vendor
         .save()
         .then(function(success) {
-          self.transitionToRoute("vendors.show", model);
+          self.transitionToRoute("vendors.show", self.vendor.id);
         })
         .catch(() => {
           console.log(model);
