@@ -22,7 +22,7 @@
             <label for="inputVendorCompany"
                 class="col-sm-2 col-form-label {{if model.errors.company "text-danger"}}">Company</label>
             <div class="col-sm-10">
-                {{input type="text" value=this.model.company.id class=(if model.errors.company "form-control is-invalid" "form-control") id="inputVendorCompany" placeholder="Company"}}
+                {{input type="text" value=this.model.company.name class=(if model.errors.company "form-control is-invalid" "form-control") id="inputVendorCompany" placeholder="Company"}}
             </div>
             {{#if model.errors.company}}
                 <div class="col-sm-10">
