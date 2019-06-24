@@ -20,6 +20,10 @@ Router.map(function() {
     this.route("show", { path: "/:id" });
     this.route("new");
   });
+  this.route("inventory-types", function() {
+    this.route("show", { path: "/:id" });
+    this.route("new");
+  });
 });
 
 export default Router;

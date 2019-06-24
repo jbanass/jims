@@ -1,0 +1,7 @@
+<div class="container">
+    <div>
+        <h2>Inventory Types</h2>
+    </div>
+    {{#link-to "inventory-types.new" class="btn btn-primary"}}Create{{/link-to}}
+    <InventoryTypeList @inventory_types={{this.model}} />
+</div>
