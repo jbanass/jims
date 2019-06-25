@@ -24,6 +24,10 @@ Router.map(function() {
     this.route("show", { path: "/:id" });
     this.route("new");
   });
+  this.route("inventory-items", function() {
+    this.route("show", { path: "/:id" });
+    this.route("new");
+  });
 });
 
 export default Router;
