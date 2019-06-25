@@ -1,0 +1,66 @@
+<div class="container">
+    <h2>Create new Material</h2>
+    <form {{action "save" on="submit"}}>
+        <div class="form-group row">
+            <label for="inputMaterialVendorSku"
+                class="col-sm-2 col-form-label {{if this.material.errors.vendor_sku "text-danger"}}">Vendor SKU</label>
+            <div class="col-sm-10">
+                {{input type="text" id="inputMaterialVendorSku" value=this.material.vendor_sku class=(if this.material.errors.vendor_sku "form-control is-invalid" "form-control")
+                placeholder="Vendor SKU"}}
+            </div>
+            {{#if this.material.errors.vendor_sku}}
+                <div class="col-sm-10">
+                    {{#each this.material.errors.vendor_sku as |error|}}
+                        <small id="vendorSkuHelp" class="text-danger">
+                            {{error.message}}
+                        </small>
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+        <div class="form-group row">
+            <label for="inputMaterialCompany"
+                class="col-sm-2 col-form-label {{if this.material.errors.company "text-danger"}}">Company</label>
+            <div class="col-sm-10">
+                <select class="form-control" onchange={{action "selectCompany" value="target.value"}}>
+                    {{#each companies as |company|}}
+                        <option value={{company.id}}>{{company.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            {{#if this.material.errors.company}}
+                <div class="col-sm-10">
+                    {{#each this.material.errors.company as |error|}}
+                        <small id="companyHelp" class="text-danger">
+                            {{error.message}}
+                        </small>
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+        <div class="form-group row">
+            <label for="inputMaterialVendor"
+                class="col-sm-2 col-form-label {{if this.material.errors.vendor "text-danger"}}">Vendor</label>
+            <div class="col-sm-10">
+                <select class="form-control" onchange={{action "selectVendor" value="target.value"}}>
+                    {{#each this.vendors as |vendor|}}
+                        <option value={{vendor.id}}>{{vendor.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            {{#if this.material.errors.vendor}}
+                <div class="col-sm-10">
+                    {{#each this.material.errors.vendor as |error|}}
+                        <small id="vendorHelp" class="text-danger">
+                            {{error.message}}
+                        </small>
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+        <button {{action "back"}} class="btn btn-secondary">Back</button>
+        <button class="btn btn-dark" {{action "cancel"}}>Cancel</button>
+        <button type="submit" {{action "save"}} disabled={{unless this.material.isValid true false}}
+            class="btn btn-primary">Save</button>
+    </form>
+</div>

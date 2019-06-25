@@ -1,0 +1,7 @@
+<div class="container">
+    <div>
+        <h2>Materials</h2>
+    </div>
+    {{#link-to "materials.new" class="btn btn-primary"}}Create{{/link-to}}
+    <MaterialList @materials={{this.model}} />
+</div>

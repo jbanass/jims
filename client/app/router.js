@@ -28,6 +28,10 @@ Router.map(function() {
     this.route("show", { path: "/:id" });
     this.route("new");
   });
+  this.route("materials", function() {
+    this.route("show", { path: "/:id" });
+    this.route("new");
+  });
 });
 
 export default Router;
