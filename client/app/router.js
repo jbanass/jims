@@ -32,6 +32,10 @@ Router.map(function() {
     this.route("show", { path: "/:id" });
     this.route("new");
   });
+  this.route("inventory-item-components", function() {
+    this.route("show", { path: "/:id" });
+    this.route("new");
+  });
 });
 
 export default Router;

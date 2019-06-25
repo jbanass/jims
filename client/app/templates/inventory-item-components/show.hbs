@@ -1,0 +1,130 @@
+<div class="container">
+    <h2>Inventory Item Component Details</h2>
+    <form {{action "save" on="submit"}}>
+        <div class="form-group row">
+            <label for="inputInventoryItemComponentMaterial"
+                class="col-sm-2 col-form-label {{if this.inventory_item_component.errors.material "text-danger"}}">Material</label>
+            <div class="col-sm-10" onclick={{action "edit"}}>
+                <select class="form-control" onchange={{action "selectMaterial" value="target.value"}}>
+                    {{#each this.materials as |material|}}
+                        <option selected={{is-equal this.inventory_item_component.material.id material.id}}
+                            value={{material.id}}>{{material.vendor_sku}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            {{#if this.inventory_item_component.errors.material}}
+                <div class="col-sm-10">
+                    {{#each this.inventory_item_component.errors.material as |error|}}
+                        <small id="materialHelp" class="text-danger">
+                            {{error.message}}
+                        </small>
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+        <div class="form-group row">
+            <label for="inputInventoryItemComponentInventoryItem"
+                class="col-sm-2 col-form-label {{if this.inventory_item_component.errors.inventory_item "text-danger"}}">Inventory
+                Item</label>
+            <div class="col-sm-10" onclick={{action "edit"}}>
+                <select class="form-control" onchange={{action "selectInventoryItem" value="target.value"}}>
+                    {{#each this.inventory_items as |inventory_item|}}
+                        <option selected={{is-equal this.inventory_item_component.inventory_item.id inventory_item.id}}
+                            value={{inventory_item.id}}>{{inventory_item.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            {{#if this.inventory_item_component.errors.inventory_item}}
+                <div class="col-sm-10">
+                    {{#each this.inventory_item_component.errors.inventory_item as |error|}}
+                        <small id="inventoryItemHelp" class="text-danger">
+                            {{error.message}}
+                        </small>
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+        <div class="form-group row">
+            <label for="inputInventoryItemComponentVendor"
+                class="col-sm-2 col-form-label {{if this.inventory_item_component.errors.vendor "text-danger"}}">Vendor</label>
+            <div class="col-sm-10" onclick={{action "edit"}}>
+                <select class="form-control" onchange={{action "selectVendor" value="target.value"}}>
+                    {{#each this.vendors as |vendor|}}
+                        <option selected={{is-equal this.inventory_item_component.vendor.id vendor.id}}
+                            value={{vendor.id}}>{{vendor.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            {{#if this.inventory_item_component.errors.vendor}}
+                <div class="col-sm-10">
+                    {{#each this.inventory_item_component.errors.vendor as |error|}}
+                        <small id="vendorHelp" class="text-danger">
+                            {{error.message}}
+                        </small>
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+        <div class="form-group row">
+            <label for="inputInventoryItemComponentCompany"
+                class="col-sm-2 col-form-label {{if this.inventory_item_component.errors.company "text-danger"}}">Company</label>
+            <div class="col-sm-10" onclick={{action "edit"}}>
+                <select class="form-control" onchange={{action "selectCompany" value="target.value"}}>
+                    {{#each companies as |company|}}
+                        <option selected={{is-equal this.inventory_item_component.company.id company.id}}
+                            value={{company.id}}>{{company.name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            {{#if this.inventory_item_component.errors.company}}
+                <div class="col-sm-10">
+                    {{#each this.inventory_item_component.errors.company as |error|}}
+                        <small id="companyHelp" class="text-danger">
+                            {{error.message}}
+                        </small>
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+        <div class="form-group row">
+            <label for="inputInventoryItemComponentQuantity"
+                class="col-sm-2 col-form-label {{if this.inventory_item_component.errors.quantity "text-danger"}}">Quantity</label>
+            <div class="col-sm-10" onclick={{action "edit"}}>
+                {{input type="text" id="inputInventoryItemComponentQuantity" value=this.inventory_item_component.quantity class=(if this.inventory_item_component.errors.quantity "form-control is-invalid" "form-control")
+                placeholder="Quantity"}}
+            </div>
+            {{#if this.inventory_item_component.errors.quantity}}
+                <div class="col-sm-10">
+                    {{#each this.inventory_item.errors.quantity as |error|}}
+                        <small id="quantityHelp" class="text-danger">
+                            {{error.message}}
+                        </small>
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+        <div class="form-group row">
+            <label for="inputInventoryItemComponentCreated" class="col-sm-2 col-form-label">Created</label>
+            <div class="col-sm-10">
+                {{input readonly disabled=true type="text" value=this.inventory_item_component.created class="form-control-plaintext"
+                    id="inputInventoryItemComponentCreated" placeholder="Created"}}
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputInventoryItemComponentModified" class="col-sm-2 col-form-label">Modified</label>
+            <div class="col-sm-10">
+                {{input readonly disabled=true type="text" value=this.inventory_item_component.modified class="form-control-plaintext"
+                    id="inputInventoryItemComponentModified" placeholder="Modified"}}
+            </div>
+        </div>
+        <button {{action "back"}} class="btn btn-secondary">Back</button>
+        {{#if this.inventory_item_component.isEditing}}
+            <button class="btn btn-dark" {{action "cancel"}}>Cancel</button>
+            <button type="submit" {{action "save"}} disabled={{unless this.inventory_item_component.isValid true false}}
+                class="btn btn-primary">Save</button>
+            <button class="btn btn-danger" {{action "delete"}}>Delete</button>
+        {{else}}
+            <button class="btn btn-danger" {{action "delete"}}>Delete</button>
+        {{/if}}
+    </form>
+</div>

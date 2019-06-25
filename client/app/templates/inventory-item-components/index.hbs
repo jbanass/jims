@@ -1,0 +1,7 @@
+<div class="container">
+    <div>
+        <h2>Inventory Item Components</h2>
+    </div>
+    {{#link-to "inventory-item-components.new" class="btn btn-primary"}}Create{{/link-to}}
+    <InventoryItemComponentList @inventory_item_components={{this.model}} />
+</div>
