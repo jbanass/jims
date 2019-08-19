@@ -1,0 +1,31 @@
+{
+  "autorun": true,
+  "terminals": [
+    {
+      "name": "Ember",
+      "description": "Ember folder",
+      "exectute": true,
+      "focus": true,
+      "command": "cd client"
+    },
+    {
+      "name": "Django",
+      "execute": true,
+      "commands": ["cd server", "source ~/.virtualenv/djangoapp/bin/activate"]
+    },
+    {
+      "name": "Ember Server",
+      "execute": true,
+      "commands": ["cd client", "ember serve --proxy http://127.0.0.1:8000"]
+    },
+    {
+      "name": "Django Server",
+      "execute": true,
+      "commands": [
+        "cd server",
+        "source ~/.virtualenv/djangoapp/bin/activate",
+        "python manage.py runserver"
+      ]
+    }
+  ]
+}
